@@ -66,7 +66,7 @@ u8 atk_8266_send_cmd(u8 *cmd,u8 *ack,u16 waittime)
 //data:发送的数据(不需要添加回车了)
 //ack:期待的应答结果,如果为空,则表示不需要等待应答
 //waittime:等待时间(单位:10ms)
-//返回值:0,发送成功(得到了期待的应答结果)luojian
+//返回值:0,发送成功(得到了期待的应答结果)
 u8 atk_8266_send_data(u8 *data,u8 *ack,u16 waittime)
 {
 	u8 res=0; 
@@ -132,7 +132,6 @@ void atk_8266_test(void)
 		while(atk_8266_send_cmd("ATE0","OK",20));//关闭回显
 		delay_ms(10); 
 		atk_8266_config();
-		atk_8266_send_cmd("AT+RST","OK",100);
 		printf("\n\rwifi配置完成\n");
 }
 
@@ -146,6 +145,5 @@ void  atk_8266_config(void)
 	printf("\n\r多连接模式");
 	atk_8266_send_cmd("AT+CIPSERVER=1,8086","OK",20);
 	printf("\n\r开启TCP服务模式");
-
 }
 

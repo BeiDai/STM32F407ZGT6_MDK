@@ -11,6 +11,7 @@
 ".\objects\malloc.o"
 ".\objects\startup_stm32f40_41xxx.o"
 ".\objects\wifi.o"
+".\objects\motor.o"
 ".\objects\misc.o"
 ".\objects\stm32f4xx_adc.o"
 ".\objects\stm32f4xx_can.o"

@@ -869,11 +869,10 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=.\objects\startup_stm32f40_41xxx.d -o.\objects\startup_stm32f40
-_41xxx.o -IA:\STM32F407ZGT6\ÔÆÒ©ºÐÔ´Âë\STM32F407ZGT6_MDK\MDK-ARM\RTE -IC:\Keil_
-v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
- -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__UVISION_VERSION SETA 514" --pred
-efine="STM32F407xx SETA 1" --list=.\listings\startup_stm32f40_41xxx.lst ..\CMSI
-S\startup_stm32f40_41xxx.s
+_41xxx.o -IA:\Github\STM32F407ZGT6_MDK\MDK-ARM\RTE -IC:\Keil_v5\ARM\PACK\Keil\S
+TM32F4xx_DFP\1.0.8\Device\Include -IC:\Keil_v5\ARM\CMSIS\Include --predefine="_
+_UVISION_VERSION SETA 514" --predefine="STM32F40_41xxx SETA 1" --list=.\listing
+s\startup_stm32f40_41xxx.lst ..\CMSIS\startup_stm32f40_41xxx.s
 
 
 

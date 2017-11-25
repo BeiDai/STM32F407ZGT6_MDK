@@ -487,6 +487,11 @@
               <FileType>1</FileType>
               <FilePath>..\ESP8266\wifi.c</FilePath>
             </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ESP8266\motor.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
