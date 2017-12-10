@@ -17,7 +17,7 @@ int main(void)
 	uart_init(115200);//初始化串口波特率为115200
 	usart3_init(115200); 
 	Motor_Init();
-	atk_8266_test();
+	atk_8266_config();
 	USART3_RX_STA=0;
 	EN = 1;
 	while(1)
