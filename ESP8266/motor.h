@@ -4,8 +4,8 @@
 #include "sys.h"
 #include "delay.h"
 
-#define EN PFout(8)	
-#define STEP PFout(9)
+#define EN PFout(13)	
+#define STEP PFout(11)
 #define DIR PFout(10)	
 
 void Motor_Init(void);

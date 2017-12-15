@@ -9,6 +9,8 @@
 ".\objects\usart3.o"
 ".\objects\timer.o"
 ".\objects\malloc.o"
+".\objects\reedswitch.o"
+".\objects\oled.o"
 ".\objects\startup_stm32f40_41xxx.o"
 ".\objects\wifi.o"
 ".\objects\motor.o"

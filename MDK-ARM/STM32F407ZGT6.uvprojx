@@ -467,6 +467,16 @@
               <FileType>1</FileType>
               <FilePath>..\Hardware\src\malloc.c</FilePath>
             </File>
+            <File>
+              <FileName>ReedSwitch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\src\ReedSwitch.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\src\oled.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
