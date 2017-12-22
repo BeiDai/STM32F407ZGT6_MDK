@@ -42,7 +42,7 @@ int main(void)
 //	}
 		atk_8266_at_response(1);
 		Step_Control(1,350,6400);
-		if(ReedSwitch==0)
+		if(ReedSwitch==1)
 		{
 			OLED_ShowString(0,30,"     STOP! 10S",16); 
 			OLED_Refresh_Gram();
