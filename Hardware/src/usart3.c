@@ -89,7 +89,6 @@ void usart3_init(u32 bound)
 	TIM7_Int_Init(1000-1,8400-1);		//100ms中断
 	USART3_RX_STA=0;		//清零
 	TIM_Cmd(TIM7, DISABLE); //关闭定时器7
-  	
 
 }
 

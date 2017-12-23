@@ -1,8 +1,14 @@
 #include "wifi.h"
+#include "led.h"
 
-////WIFI AP模式,模块对外的无线参数,可自行修改.
-//const u8* ssid="8266";			//对外SSID号
-//const u8* password="123456789"; 		//连接密码
+////WIFI AP端口号，WiFi名，wifi密码
+
+const unsigned int portnum=8086;		 
+
+const u8* wifiap_ssid="ESP8266";			//对外SSID号
+
+const u8* wifiap_password="123456789"; 		//连接密码 
+
 
 //将收到的AT指令应答数据返回给电脑串口
 //mode:0,不清零USART3_RX_STA;
@@ -125,6 +131,8 @@ void atk_8266_test(void)
 	printf("ATK-ESP8266 WIFI模块测试");
 	while(atk_8266_send_cmd("AT","OK",20))//检查WIFI模块是否在线
 	{
+//		atk_8266_quit_trans();//退出透传
+//			atk_8266_send_cmd("AT+CIPMODE=0","OK",200);  //关闭透传模式	
 		printf("未检测到模块!!!");
 		delay_ms(800);
 		printf("尝试连接模块...");
@@ -137,12 +145,23 @@ void atk_8266_test(void)
 
 void  atk_8266_config(void)
 {
-	atk_8266_send_cmd("AT+CWMODE=2","OK",20);
-	atk_8266_send_cmd("AT+RST","OK",20);
-	delay_ms(1000);//延时2s等待模块重启
-	atk_8266_send_cmd("AT+CWSAP=\"ESP8266\",\"123456789\",1,4","OK",1000);
-	atk_8266_send_cmd("AT+CIPMUX=1","OK",20);
-	printf("\n\r多连接模式");
+		u8 *p;
+		while(atk_8266_send_cmd("AT","OK",20))//检查WIFI模块是否在线
+		{
+			LED2=!LED2;
+			delay_ms(500);
+		}
+		while(atk_8266_send_cmd("ATE0","OK",20));//关闭回显
+		delay_ms(100);
+		atk_8266_send_cmd("AT+CWMODE=2","OK",20);
+		atk_8266_send_cmd("AT+RST","OK",1000);
+		sprintf((char*)p,"AT+CWSAP=\"%s\",\"%s\",1,4",wifiap_ssid,wifiap_password);
+		atk_8266_send_cmd(p,"OK",1000);			
+//	atk_8266_send_cmd("AT+CWSAP=\"ESP8266\",\"123456789\",1,4","OK",1000);
+		atk_8266_send_cmd("AT+CIPMUX=1","OK",20);
+//	printf("\n\r多连接模式");
+//		sprintf((char*)p,"AT+CIPSERVER=1,%d",portnum);    //配置目标TCP服务器
+//		atk_8266_send_cmd(p,"OK",200);
 	atk_8266_send_cmd("AT+CIPSERVER=1,8086","OK",20);
-	printf("\n\r开启TCP服务模式");
+//	printf("\n\r开启TCP服务模式");
 }

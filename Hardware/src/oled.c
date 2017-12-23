@@ -165,15 +165,15 @@ void OLED_ShowNum(u8 x,u8 y,u32 num,u8 len,u8 size)
 //*p:字符串起始地址 
 void OLED_ShowString(u8 x,u8 y,const u8 *p,u8 size)
 {	
-    while((*p<='~')&&(*p>=' '))//判断是不是非法字符!
+//  while((*p<='~')&&(*p>=' '))//判断是不是非法字符!
+	while(*p!=0)
     {       
         if(x>(128-(size/2))){x=0;y+=size;}
-        if(y>(64-size)){y=x=0;OLED_Clear();}
+//        if(y>(64-size)){y=x=0;OLED_Clear();}
         OLED_ShowChar(x,y,*p,size,1);	 
         x+=size/2;
         p++;
     }  
-	
 }	
 //初始化SSD1309				    
 void OLED_Init(void)
