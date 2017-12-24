@@ -1,14 +1,16 @@
 # keil
-*.axf
-*.htm
-*.lnp
-*.dep
-*.crf
-*.uvguix.BeiDai
-*.uvoptx
-*.uvprojx
-*.
+# *.axf
+# *.htm
+# *.lnp
+# *.dep
+# *.crf
+# *.iex
+# *.Bak
+
+
 MDK-ARM/Objects/
+MDK-ARM/Listings
+MDK-ARM/DebugConfig
 
 # Prerequisites
 *.d
