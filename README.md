@@ -6,8 +6,8 @@
 - [工作日志](/Project_Development_Experience/工作日志.md)
 - [ESP8266使用经验](/Project_Development_Experience/ESP8266使用经验.md)
 - [OLED使用经验](/Project_Development_Experience/OLED使用经验.md)
-- [A4988驱动42步进电机](/Project_Development_Experience/A4988驱动42步进电机)
-- [干簧管使用经验](/Project_Development_Experience/干簧管使用经验)
+- [A4988驱动42步进电机](/Project_Development_Experience/A4988驱动42步进电机.md)
+- [干簧管使用经验](/Project_Development_Experience/干簧管使用经验.md)
 ### 项目所用到材料
   本项目主控芯片是STM32F407ZGT6
 
