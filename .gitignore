@@ -11,6 +11,10 @@
 MDK-ARM/Objects/
 MDK-ARM/Listings
 MDK-ARM/DebugConfig
+Project_Device_Data/
+Project_Documentation/
+
+
 
 # Prerequisites
 *.d

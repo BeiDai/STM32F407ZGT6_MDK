@@ -17,7 +17,8 @@
 
 extern u16 USART3_RX_STA;
 
-//定时器7中断服务程序		    
+//定时器7中断服务程序	
+//如果串口接收时间超过100ms，则进入中断添加接收完成标志
 void TIM7_IRQHandler(void)
 { 	
 	if (TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET)//是更新中断
