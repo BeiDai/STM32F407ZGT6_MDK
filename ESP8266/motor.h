@@ -8,6 +8,9 @@
 #define STEP PFout(11)
 #define DIR PFout(10)	
 
+extern u8 position0;   
+extern u8 position1; 
+
 void Motor_Init(void);
 void Step_Control(u8 dir,u16 period,u32 steps);
 #endif

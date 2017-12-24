@@ -1,5 +1,8 @@
 #include "motor.h"
-//
+
+u8 position0 = 0;
+u8 position1 = 0;
+
 void Motor_Init(void) 
 { 
   GPIO_InitTypeDef  GPIO_InitStructure;
@@ -25,7 +28,13 @@ void Step_Control(u8 dir,u16 period,u32 steps) //1300--700
 	STEP = 0; 
 	delay_us(period); 
 	} 
-//	delay_ms(10);
+	delay_ms(10);
 	EN =1; 
 }
+
+//void boxPosition(u8 num)
+//{
+//	
+//}
+
 

@@ -1,5 +1,7 @@
 #include "timer.h"
 #include "led.h"
+#include "motor.h"
+#include "usart3.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK STM32F407开发板
@@ -13,17 +15,16 @@
 //All rights reserved									  
 ////////////////////////////////////////////////////////////////////////////////// 	 
 
-
-extern vu16 USART3_RX_STA;
+extern u16 USART3_RX_STA;
 
 //定时器7中断服务程序		    
 void TIM7_IRQHandler(void)
 { 	
 	if (TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET)//是更新中断
-	{	 			   
-		USART3_RX_STA|=1<<15;	//标记接收完成
-		TIM_ClearITPendingBit(TIM7, TIM_IT_Update  );  //清除TIM7更新中断标志    
-		TIM_Cmd(TIM7, DISABLE);  //关闭TIM7 
+	{	 		
+			USART3_RX_STA|=1<<15;	//标记接收完成
+			TIM_ClearITPendingBit(TIM7, TIM_IT_Update  );  //清除TIM7更新中断标志    
+			TIM_Cmd(TIM7, DISABLE);  //关闭TIM7 
 	}	    
 }
  

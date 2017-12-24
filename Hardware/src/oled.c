@@ -127,6 +127,33 @@ void OLED_ShowChar(u8 x,u8 y,u8 chr,u8 size,u8 mode)
 		}  	 
     }          
 }
+void OLED_ShowChinese(u8 x,u8 y,u8 chr,u8 size,u8 mode)
+{      			    
+	u8 temp,t,t1;
+	u8 y0=y;
+	u8 csize=(size/8+((size%8)?1:0))*(size);		//得到字体一个汉字字符对应点阵集所占的字节数 
+    for(t=0;t<csize;t++)
+    {   
+		if(size==12)temp=asc2_1212[chr][t]; 	 	//调用1206字体
+		else if(size==14)temp=asc2_1414[chr][t];	//调用1608字体
+		else if(size==16)temp=asc2_1616[chr][t];	//调用2412字体
+		else return;								//没有的字库
+    for(t1=0;t1<8;t1++)
+		{
+			if(temp&0x80)OLED_DrawPoint(x,y,mode);
+			else OLED_DrawPoint(x,y,!mode);
+			temp<<=1;
+			y++;
+			if((y-y0)==size)
+			{
+				y=y0;
+				x++;
+				break;
+			}
+		}  	 
+    }          
+}
+
 //m^n函数
 u32 mypow(u8 m,u8 n)
 {

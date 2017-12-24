@@ -5,7 +5,6 @@
 #include "string.h"	  
 #include "timer.h"
 
-
 //´®¿Ú·¢ËÍ»º´æÇø 	
 __align(8) u8 USART3_TX_BUF[USART3_MAX_SEND_LEN]; 	//·¢ËÍ»º³å,×î´óUSART3_MAX_SEND_LEN×Ö½Ú
 #ifdef USART3_RX_EN   								//Èç¹ûÊ¹ÄÜÁË½ÓÊÕ   	  
@@ -19,29 +18,31 @@ u8 USART3_RX_BUF[USART3_MAX_RECV_LEN]; 				//½ÓÊÕ»º³å,×î´óUSART3_MAX_RECV_LEN¸ö×
 //½ÓÊÕµ½µÄÊý¾Ý×´Ì¬
 //[15]:0,Ã»ÓÐ½ÓÊÕµ½Êý¾Ý;1,½ÓÊÕµ½ÁËÒ»ÅúÊý¾Ý.
 //[14:0]:½ÓÊÕµ½µÄÊý¾Ý³¤¶È
-u16 USART3_RX_STA=0;   	 
+u16 USART3_RX_STA=0;  
 void USART3_IRQHandler(void)
 {
-	u8 res;	    
-	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)//½ÓÊÕµ½Êý¾Ý
-	{	 
- 
-	res =USART_ReceiveData(USART3);		
-	if((USART3_RX_STA&(1<<15))==0)//½ÓÊÕÍêµÄÒ»ÅúÊý¾Ý,»¹Ã»ÓÐ±»´¦Àí,Ôò²»ÔÙ½ÓÊÕÆäËûÊý¾Ý
-	{ 
-		if(USART3_RX_STA<USART3_MAX_RECV_LEN)		//»¹¿ÉÒÔ½ÓÊÕÊý¾Ý
-		{
-			TIM_SetCounter(TIM7,0);//¼ÆÊýÆ÷Çå¿Õ        				 
-			if(USART3_RX_STA==0)		
-				TIM_Cmd(TIM7, ENABLE);  //Ê¹ÄÜ¶¨Ê±Æ÷7 
-			USART3_RX_BUF[USART3_RX_STA++]=res;		//¼ÇÂ¼½ÓÊÕµ½µÄÖµ	 
-		}else 
-		{
-			USART3_RX_STA|=1<<15;					//Ç¿ÖÆ±ê¼Ç½ÓÊÕÍê³É
-		} 
-	}  	
- }										 
+		u8 res;	
+		if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)//½ÓÊÕµ½Êý¾Ý
+		{	 
+		res =USART_ReceiveData(USART3);		
+		if((USART3_RX_STA&(1<<15))==0)//½ÓÊÕÍêµÄÒ»ÅúÊý¾Ý,»¹Ã»ÓÐ±»´¦Àí,Ôò²»ÔÙ½ÓÊÕÆäËûÊý¾Ý
+		{ 
+			if(USART3_RX_STA<USART3_MAX_RECV_LEN)		//»¹¿ÉÒÔ½ÓÊÕÊý¾Ý
+			{
+				TIM_SetCounter(TIM7,0);//¼ÆÊýÆ÷Çå¿Õ        				 
+				if(USART3_RX_STA==0)		
+					TIM_Cmd(TIM7, ENABLE);  //Ê¹ÄÜ¶¨Ê±Æ÷7 
+				USART3_RX_BUF[USART3_RX_STA++]=res;		//¼ÇÂ¼½ÓÊÕµ½µÄÖµ	 
+			}else 
+			{
+				USART3_RX_STA|=1<<15;					//Ç¿ÖÆ±ê¼Ç½ÓÊÕÍê³É
+			} 
+		}  	
+	 }		
 }  
+
+
+
 #endif	
 //³õÊ¼»¯IO ´®¿Ú3
 //bound:²¨ÌØÂÊ	  

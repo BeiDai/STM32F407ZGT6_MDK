@@ -1,9 +1,10 @@
 #include "wifi.h"
 #include "led.h"
+#include "oled.h"
 
 ////WIFI AP端口号，WiFi名，wifi密码
 
-const unsigned int portnum=8086;		 
+//const unsigned int portnum=8086;		 
 
 const u8* wifiap_ssid="ESP8266";			//对外SSID号
 
@@ -149,14 +150,14 @@ void  atk_8266_config(void)
 		while(atk_8266_send_cmd("AT","OK",20))//检查WIFI模块是否在线
 		{
 			LED2=!LED2;
-			delay_ms(500);
+			delay_ms(200);
 		}
 		while(atk_8266_send_cmd("ATE0","OK",20));//关闭回显
 		delay_ms(100);
 		atk_8266_send_cmd("AT+CWMODE=2","OK",20);
-		atk_8266_send_cmd("AT+RST","OK",1000);
+		atk_8266_send_cmd("AT+RST","OK",500);
 		sprintf((char*)p,"AT+CWSAP=\"%s\",\"%s\",1,4",wifiap_ssid,wifiap_password);
-		atk_8266_send_cmd(p,"OK",1000);			
+		atk_8266_send_cmd(p,"OK",500);			
 //	atk_8266_send_cmd("AT+CWSAP=\"ESP8266\",\"123456789\",1,4","OK",1000);
 		atk_8266_send_cmd("AT+CIPMUX=1","OK",20);
 //	printf("\n\r多连接模式");
@@ -164,4 +165,6 @@ void  atk_8266_config(void)
 //		atk_8266_send_cmd(p,"OK",200);
 	atk_8266_send_cmd("AT+CIPSERVER=1,8086","OK",20);
 //	printf("\n\r开启TCP服务模式");
+		OLED_ShowChinese(68+30,0,5,12,1);//wifi
+		OLED_Refresh_Gram();
 }
