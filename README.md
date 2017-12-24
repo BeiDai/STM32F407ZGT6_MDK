@@ -1,11 +1,18 @@
 # 厦门理工学院创新创业项目
 
 ## 项目简介
+
+### 项目经验
+- [工作日志](/Project_Development_Experience/工作日志.md)
+- [ESP8266使用经验](/Project_Development_Experience/ESP8266使用经验.md)
+- [OLED使用经验](/Project_Development_Experience/OLED使用经验.md)
+- [A4988驱动42步进电机](/Project_Development_Experience/A4988驱动42步进电机)
+- [干簧管使用经验](/Project_Development_Experience/干簧管使用经验)
 ### 项目所用到材料
   本项目主控芯片是STM32F407ZGT6
 
   12V电源，12V转5V，3.3V电源转换模块，ESP8266WIFI模块，A4988+42步进电机，一个8口的药盒....
-  
+
   增加了干簧管传感器，APDS-9930姿态传感器，2.42寸OLED显示屏，SHT3x温湿度传感器。
 
 ### 现阶段项目实现的功能
