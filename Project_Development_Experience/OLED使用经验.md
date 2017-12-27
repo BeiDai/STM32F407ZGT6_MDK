@@ -57,10 +57,10 @@
     {
       GPIO_InitTypeDef  GPIO_InitStructure;
 
-    	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB|RCC_AHB1Periph_GPIOC|RCC_AHB1Periph_GPIOD, ENABLE);//使能PORTA~E,PORTG时钟
-
-    	//使用4线SPI 串口模式
-
+    	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB|RCC_AHB1Periph_GPIOC|RCC_AHB1Periph_GPIOD, ENABLE);
+        //使能PORTA~E,PORTG时钟
+    	
+        //使用4线SPI 串口模式
       GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 ;
       GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
       GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出

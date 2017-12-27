@@ -42,16 +42,16 @@
 ##### 1. 药盒初始化到1号位置
 -----
 
-  ![药盒初始化](/Project_Image_Date/初始化到1号.jpg)
+  ![药盒初始化](/Project_Image_Date/初始化到1号.JPG)
 
 ----
 ##### 2. 手机发送控制命令
 ------
 
-  ![手机控制命令](/Project_Image_Date/手机控制.png)
+  ![手机控制命令](/Project_Image_Date/手机控制.PNG)
 
 -----
 ##### 3. 药盒执行转到5号位置
 -----
 
-  ![药盒执行](/Project_Image_Date/药盒控制.jpg)
+  ![药盒执行](/Project_Image_Date/药盒控制.JPG)
